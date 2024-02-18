@@ -1,0 +1,67 @@
+getAllUser:
+  handler: "src/functions/user-function.getAll"
+  events:
+    - http:
+        method: GET
+        path: user
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+createUser:
+  handler: "src/functions/user-function.create"
+  events:
+    - http:
+        method: POST
+        # documentation: ${file(config/serverless/functions/user/docs/user-create.doc.yaml)}
+        path: user
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+getByIdUser:
+  handler: "src/functions/user-function.getById"
+  events:
+    - http:
+        method: GET
+        path: user/{id}
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+updateUser:
+  handler: "src/functions/user-function.update"
+  events:
+    - http:
+        method: PUT
+        path: user/{id}
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+deleteUser:
+  handler: "src/functions/user-function.remove"
+  events:
+    - http:
+        method: DELETE
+        path: user/{id}
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+bloquedUser:
+  handler: "src/functions/user-function.bloqued"
+  events:
+    - http:
+        method: PATCH
+        path: user/{id}/bloqued
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+

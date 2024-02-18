@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@function/*": ["src/function/*"],
+      "@core/config/*": ["src/core/config/*"],
+      "@constants/*": ["src/core/constants/*"],
+      "@entities/*": ["src/core/entities/*"],
+      "@enums/*": ["src/core/enums/*"],
+      "@factories/*": ["src/core/factories/*"],
+      "@interfaces/*": ["src/core/interfaces/*"],
+      "@middlewares/*": ["src/core/middlewares/*"],
+      "@repositories/*": ["src/core/repositories/*"],
+      "@services/*": ["src/core/services/*"],
+      "@validators/*": ["src/core/validators/*"],
+      "@types/*": ["src/config/types/*"],
+      "@utils/*": ["src/config/utils/*"]
+    }
+  }
+}

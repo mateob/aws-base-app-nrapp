@@ -1,0 +1,78 @@
+getAllCustomer:
+  handler: "src/functions/customer-function.getAll" # Nome da função
+  events:
+    - http:
+        method: GET
+        # documentation: ${file(config/serverless/functions/customer/docs/customer-create.doc.yaml)}
+        path: customer
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+createCustomer:
+  handler: "src/functions/customer-function.create"
+  events:
+    - http:
+        method: POST
+        # documentation: ${file(config/serverless/functions/customer/docs/customer-create.doc.yaml)}
+        path: customer
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+getByIdCustomer:
+  handler: "src/functions/customer-function.getById"
+  events:
+    - http:
+        method: GET
+        path: customer/{id}
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+updateCustomer:
+  handler: "src/functions/customer-function.update"
+  events:
+    - http:
+        method: PUT
+        path: customer/{id}
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+deleteCustomer:
+  handler: "src/functions/customer-function.remove"
+  events:
+    - http:
+        method: DELETE
+        path: customer/{id}
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+bloquedCustomer:
+  handler: "src/functions/customer-function.bloqued"
+  events:
+    - http:
+        method: PATCH
+        path: customer/{id}/bloqued
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+notificationCustomer:
+  handler: "src/functions/customer-function.notification"
+  events:
+    - http:
+        method: POST
+        path: customer/notification
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0

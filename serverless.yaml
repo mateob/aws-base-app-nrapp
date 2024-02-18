@@ -1,0 +1,53 @@
+service: ${self:provider.environment.serviceName}
+disabledDeprecations:
+  - CLI_OPTIONS_SCHEMA
+custom:
+  serverless-offline:
+    httpPort: 3030
+    useChildProcesses: true
+  documentation:
+    version: ${self:provider.environment.version}
+    title: "Backend NRApp API"
+    description: "Backend do produto Nicole Rosa App"
+    models: ${file(config/serverless/docs/serverless.doc.yaml)}
+    output: config/serverless/docs/openapi.yml
+  webpack:
+    webpackConfig: ./webpack.config.js
+  customDomain:
+    domainName: ${self:provider.environment.domainName}
+    basePath: ""
+    stage: ${self:provider.stage}
+    createRoute53Record: true
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+  - serverless-openapi-documentation
+  - serverless-plugin-resource-tagging
+  - serverless-domain-manager
+package:
+  excludeDevDependencies: true
+  individually: false
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  stage: ${opt:stage, "local"}
+  region: ${self:provider.environment.awsRegion}
+  stackTags:
+    NR-Env: ${self:provider.environment.tagEnv}
+    NR-Project: ${self:provider.environment.tagProject}
+  apiGateway:
+    minimumCompressionSize: 1024
+    shouldStartNameWithService: true
+  environment: ${file(./config/env.${self:provider.stage}.json)}
+
+functions:
+  - ${file(./config/serverless/functions/auth/auth.functions.yaml)}
+  - ${file(./config/serverless/functions/user/user.functions.yaml)}
+  - ${file(./config/serverless/functions/user-group/user-group.functions.yaml)}
+  - ${file(./config/serverless/functions/customer/customer.functions.yaml)}
+  - ${file(./config/serverless/functions/analysis/analysis.functions.yaml)}
+  - ${file(./config/serverless/functions/vehicle/vehicle.functions.yaml)}
+  - ${file(./config/serverless/functions/workflow/workflow.functions.yaml)}
+  - ${file(./config/serverless/functions/restriction/restriction.functions.yaml)}

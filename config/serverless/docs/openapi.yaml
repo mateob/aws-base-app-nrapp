@@ -1,0 +1,33 @@
+openapi: 3.0.0
+components:
+  schemas: {}
+  securitySchemes: {}
+info:
+  title: Backoffice Integrador
+  description: Projeto destinado a integração
+  version: 1.1.20220320.0004
+paths:
+  /user:
+    post:
+      operationId: getAllUser
+      summary: Create User
+      description: Criação de usuário
+      responses:
+        '201':
+          description: Usuário Criado com sucesso
+          content: {}
+        '500':
+          description: ''
+          content: {}
+  /token:
+    post:
+      operationId: token
+      summary: Token
+      description: Roda de autenticação
+      responses:
+        '200':
+          description: Usuário autenticado
+          content: {}
+        '500':
+          description: ''
+          content: {}

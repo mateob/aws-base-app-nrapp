@@ -1,0 +1,14 @@
+summary: 'Token'
+description: 'Roda de autenticação'
+methodResponses:
+  - statusCode: 200
+    responseBody:
+      description: 'Usuário autenticado'
+    responseModels:
+        application/json: ''
+  - statusCode: 500
+    responseBody:
+      description: ''
+    responseModels:
+      application/json: 'CreateResponse'
+      application/xml: 'CreateResponseXML'

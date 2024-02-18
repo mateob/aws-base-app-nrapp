@@ -1,0 +1,54 @@
+getAllVehicle:
+  handler: "src/functions/vehicle-function.getAll"
+  events:
+    - http:
+        method: GET
+        path: vehicle
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+getByIdVehicle:
+  handler: "src/functions/vehicle-function.getById"
+  events:
+    - http:
+        method: GET
+        path: vehicle/{id}
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+createVehicle:
+  handler: "src/functions/vehicle-function.create"
+  events:
+    - http:
+        method: POST
+        path: vehicle
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+updateVehicle:
+  handler: "src/functions/vehicle-function.updateById"
+  events:
+    - http:
+        method: PUT
+        path: vehicle
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+bloquedVehicle:
+  handler: "src/functions/vehicle-function.assign"
+  events:
+    - http:
+        method: POST
+        path: vehicle/bloqued/{id}
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0

@@ -1,0 +1,65 @@
+getAllAnalysis:
+  handler: "src/functions/analysis-function.getAll"
+  events:
+    - http:
+        method: GET
+        path: analysis
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+getAllActiveAnalysis:
+  handler: "src/functions/analysis-function.getAllActives"
+  events:
+    - http:
+        method: GET
+        path: analysis/actives
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+getByIdAnalysis:
+  handler: "src/functions/analysis-function.getById"
+  events:
+    - http:
+        method: GET
+        path: analysis/{id}
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+createAnalysis:
+  handler: "src/functions/analysis-function.create"
+  events:
+    - http:
+        method: POST
+        path: analysis
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+updateAnalysis:
+  handler: "src/functions/analysis-function.updateById"
+  events:
+    - http:
+        method: PUT
+        path: analysis/{id}
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+assignAnalysis:
+  handler: "src/functions/analysis-function.assign"
+  events:
+    - http:
+        method: POST
+        path: analysis/assign/{id}
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0

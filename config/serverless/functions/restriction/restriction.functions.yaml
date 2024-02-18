@@ -1,0 +1,10 @@
+getAllByAnalysisRestriction:
+  handler: "src/functions/restriction-function.getByAnalysis"
+  events:
+    - http:
+        method: GET
+        path: restriction/{analysisUuid}
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0

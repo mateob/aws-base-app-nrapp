@@ -1,0 +1,54 @@
+getAllWorkflow:
+  handler: "src/functions/workflow-function.getAll"
+  events:
+    - http:
+        method: GET
+        path: workflow
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+getByIdWorkflow:
+  handler: "src/functions/workflow-function.getById"
+  events:
+    - http:
+        method: GET
+        path: workflow/{id}
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+createWorkflow:
+  handler: "src/functions/workflow-function.create"
+  events:
+    - http:
+        method: POST
+        path: workflow
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+updateWorkflow:
+  handler: "src/functions/workflow-function.updateById"
+  events:
+    - http:
+        method: PATCH
+        path: workflow
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+removeWorkflow:
+  handler: "src/functions/workflow-function.remove"
+  events:
+    - http:
+        method: DELETE
+        path: workflow
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0

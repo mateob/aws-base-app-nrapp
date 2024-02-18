@@ -1,0 +1,32 @@
+getAllUserGroup:
+  handler: "src/functions/user-group-function.getAll"
+  events:
+    - http:
+        method: GET
+        path: usergroup
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+createUserGroup:
+  handler: "src/functions/user-group-function.create"
+  events:
+    - http:
+        method: POST
+        path: usergroup
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+updateUserGroup:
+  handler: "src/functions/user-group-function.updateById"
+  events:
+    - http:
+        method: PUT
+        path: usergroup
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0

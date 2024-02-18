@@ -1,0 +1,45 @@
+authorizer:
+  handler: src/functions/auth-function.validate
+
+token:
+  handler: src/functions/auth-function.token
+  timeout: 30
+  events:
+    - http:
+        method: POST
+        path: token
+        documentation: ${file(config/serverless/functions/auth/docs/auth-token.doc.yaml)}
+        cors: true
+
+validateToken:
+  handler: src/functions/auth-function.validateToken
+  timeout: 30
+  events:
+    - http:
+        method: POST
+        path: token/validator
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+changePassword:
+  handler: src/functions/auth-function.changePassword
+  timeout: 30
+  events:
+    - http:
+        method: POST
+        path: token/change-password
+        cors: true
+        authorizer:
+          name: authorizer
+          resultTtlInSeconds: 0
+
+registerNewUser:
+  handler: src/functions/auth-function.registerNewUser
+  timeout: 30
+  events:
+    - http:
+        method: POST
+        path: token/register
+        cors: true

@@ -1,0 +1,37 @@
+summary: 'Create User'
+description: 'Criação de usuário'
+requestBody:
+    description: ''
+requestModels:
+    application/json: ''
+pathParams:
+  - name: ''
+    description: ''
+    schema:
+      - type: ''
+        pattern: ''
+queryParams:
+  - name: ''
+    description: ''
+    schema:
+      - type: ''
+        enum:
+          - 'premium'
+          - 'standard'
+cookieParams:
+  - name: ''
+    description: ''
+    schema:
+      - type: ''
+methodResponses:
+  - statusCode: 201
+    responseBody:
+      description: 'Usuário Criado com sucesso'
+    responseModels:
+        application/json: ''
+  - statusCode: 500
+    responseBody:
+      description: ''
+    responseModels:
+      application/json: 'CreateResponse'
+      application/xml: 'CreateResponseXML'

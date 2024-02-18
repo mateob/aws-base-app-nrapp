@@ -1,0 +1,3 @@
+- name: AuthTeste
+  description: Um teste
+  contentType: application/json
